@@ -17,6 +17,17 @@ class GroupsController < ApplicationController
     redirect_to groups_path
   end
 
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    @group.update(group_params)
+    redirect_to group_path,notice:"更新成功"
+  end
+
+
   private
 
   def group_params
